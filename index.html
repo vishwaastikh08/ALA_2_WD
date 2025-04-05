@@ -1,0 +1,51 @@
+<html>
+<head>
+  <title>Colorful Bubbles</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: linear-gradient(to bottom, #001f3f, #82868a);
+      height: 100vh;
+    }
+
+    .bubble {
+      position: absolute;
+      bottom: -100px;
+      border-radius: 50%;
+      opacity: 0.7;
+      animation: floatUp 8s infinite ease-in;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) translateX(0);
+      }
+      50% {
+        transform: translateY(-50vh) translateX(20px);
+      }
+      100% {
+        transform: translateY(-100vh) translateX(-20px);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <script>
+    const colors = ['#ff4d4d', '#ffcc00', '#66ff66', '#66ccff', '#cc66ff', '#ff99cc'];
+    for (let i = 0; i < 30; i++) {
+      const bubble = document.createElement('div');
+      const size = Math.random() * 40 + 20;
+      bubble.classList.add('bubble');
+      bubble.style.width = `${size}px`;
+      bubble.style.height = `${size}px`;
+      bubble.style.left = `${Math.random() * 100}vw`;
+      bubble.style.background = colors[Math.floor(Math.random() * colors.length)];
+      bubble.style.animationDuration = `${6 + Math.random() * 4}s`;
+      document.body.appendChild(bubble);
+    }
+  </script>
+
+</body>
+</html>
